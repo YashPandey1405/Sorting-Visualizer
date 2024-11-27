@@ -54,6 +54,35 @@ The *Sorting Visualizer* is an interactive web application designed to visually 
 
 ## 🚀 Getting Started
 
+Follow these steps to run the project locally:
+
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/yashpandey1405/Sorting-Visualizer.git
+```
+
+### 2. Navigate to the Project Directory
+```bash
+cd Sorting-Visualizer
+```
+
+### 3. Open the Project in a Browser
+- Open the `index.html` file directly in your browser.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repository, create a new branch, and submit a pull request with your improvements.
+
+---
+
+## 📝 License
+
+This project is open-source and available under the **MIT License**.
+
+---
+
+## 🙌 Acknowledgments
+
+Special thanks to my friends who has supported this project, providing feedback and suggestions for future improvements!
