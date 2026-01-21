@@ -1,71 +1,112 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  margin-top: 75px;
-  line-height: 1;
+/* Modern Sorting Visualizer Styles
+   Optimized for Dark Mode & Tailwind Integration
+*/
+
+:root {
+  --primary-gradient: linear-gradient(to top, #4f46e5, #06b6d4);
+  --bar-bg: #06b6d4;
+  --bg-dark: #0f172a;
+  --slate-600: #475569;
+  --indigo-500: #6366f1;
 }
 
-h3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0px;
-  background-color: #1abc9c;
-}
-
-#header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  color: black;
-  background-color: #16a085;
-  padding-top: 0px;
-  z-index: 1000;
-}
-
+/* 1. CONTAINER FOR THE BARS */
 .flex-container {
-  margin-top: 20px;
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  height: 200px;
+  height: 60vh; /* Responsive height */
   justify-content: center;
-  transition: 2s all ease;
+  align-items: flex-end; /* Grows bars from bottom */
+  padding-bottom: 3rem;
+  background-color: transparent;
+  gap: 2px; /* Spacing between bars */
 }
 
+/* 2. THE SORTING BARS */
 .flex-item {
-  background: cyan;
-  border: 1pt solid black;
-  width: 10px;
-  transition: 0.1s all ease;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
+  transition: 0.1s height ease-in-out;
+  width: 10px; /* Base width; JS usually overrides this */
 }
 
-.row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+/* 3. BAR STATES (Ensure your JS uses these classes) */
+.flex-item.sorting {
+  background: #f59e0b !important; /* Amber for comparison */
 }
 
-#input {
-  display: flex;
-  padding: 10px;
-  justify-content: space-around;
+.flex-item.swapping {
+  background: #ef4444 !important; /* Red for swaps */
 }
 
-button {
-  margin: 5px;
-  height: 50px;
+.flex-item.sorted {
+  background: #10b981 !important; /* Emerald for finished */
 }
 
-footer {
-  margin-top: 330px;
-  position: sticky;
-  align-self: center;
-  font-family: sans-serif;
-  font-size: large;
+/* 4. CUSTOM RANGE SLIDERS FIX */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 8rem;
 }
 
-body {
-  color: black;
-  background-color: rgba(238, 234, 234, 0.932);
+/* Track styling */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--slate-600);
+  height: 6px;
+  border-radius: 10px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: var(--slate-600);
+  height: 6px;
+  border-radius: 10px;
+}
+
+/* Thumb styling (The circle) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -5px; /* Centers thumb on track */
+  background-color: var(--indigo-500);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid #1e293b;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  background-color: var(--indigo-500);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid #1e293b;
+}
+
+/* 5. SMOOTH SCROLLING & SCROLLBAR */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }
